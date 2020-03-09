@@ -1,0 +1,28 @@
+.App {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  /* text-align: center; */
+  width: 50%;
+  min-width: 40rem;
+}
+
+div {
+  box-sizing: border-box;
+  /* margin: 0.25rem; */
+  /* padding: 0.5rem 1rem; */
+}
+
+button {
+  width: 6rem;
+  /* background-color: transparent; */
+  border: 2px solid black;
+  margin: 0 0.25rem;
+  font-weight: bold;
+}
+
+button:disabled {
+  border: 2px solid rgb(170, 170, 170);
+  background-color: rgb(170, 170, 170);
+}

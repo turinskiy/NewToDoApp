@@ -1,0 +1,20 @@
+.todo-item {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid black;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.item-text {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  font-size: 2rem;
+}
+
+.item-actions {
+  display: flex;
+  flex-grow: 0;
+  padding: 0;
+}

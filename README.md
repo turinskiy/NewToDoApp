@@ -1,2 +1,0 @@
-# NewToDoApp
-Created with CodeSandbox

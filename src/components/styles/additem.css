@@ -1,0 +1,42 @@
+.text-container {
+  flex-grow: 1;
+  margin: 0.25rem;
+  padding: 0.5rem 1rem;
+}
+
+.button-container {
+  flex-grow: 0;
+  margin: 0.25rem;
+  padding: 0.5rem 1rem;
+}
+
+.container input[type="text"] {
+  width: 100%;
+  text-rendering: auto;
+  color: -internal-light-dark-color(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  background-color: -internal-light-dark-color(white, black);
+  cursor: text;
+  margin: 0em;
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-size: 2rem;
+  line-height: normal;
+  padding: 1px 0px;
+  border-width: 2px;
+}
+
+.container button {
+  height: 3rem;
+}

@@ -1,0 +1,13 @@
+.filter-block {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.selected {
+  background-color: #ddaa00;
+}
+
+.active-elem:hover {
+  cursor: pointer;
+  color: blue;
+}
