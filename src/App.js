@@ -3,11 +3,13 @@ import { connect } from "react-redux";
 import {
   AddItemComponent,
   ToDoListComponent,
-  FilterComponent,
+  FilterComponent
+} from "./components/index";
+import {
   SHOW_ALL,
   SHOW_ACTIVE,
   SHOW_COMPLETED
-} from "./components/index";
+} from "./redux/constants"
 import "./styles.css";
 
 class App extends React.Component {
@@ -28,13 +30,13 @@ class App extends React.Component {
   }
 
   getherAllAvailable() {
-    if (this.state.filter === SHOW_COMPLETED) {
-      return this.getCompleted();
-    } else if (this.state.filter === SHOW_ACTIVE) {
-      return this.getActive();
-    }
+    const filterMap = {
+      SHOW_ALL: this.props.all,
+      SHOW_ACTIVE: this.getActive(),
+      SHOW_COMPLETED: this.getCompleted()
+    };
 
-    return this.props.all;
+    return filterMap[this.state.filter];
   }
 
   getCompleted() {
@@ -60,8 +62,7 @@ class App extends React.Component {
         <AddItemComponent />
         <FilterComponent
           handleFilter={this.onFilterChange}
-          activeFilter={this.state.filter}
-        />
+          activeFilter={this.state.filter}/>
         <ToDoListComponent data={this.getherAllAvailable()} />
       </>
     );
@@ -78,4 +79,5 @@ const AppComponent = connect(
   mapStateToProps,
   null
 )(App);
+
 export default AppComponent;
