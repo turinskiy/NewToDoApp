@@ -3,8 +3,6 @@ import {
   GET_ALL,
   DELETE,
   COMPLETE
-  // GET_COMPLETED,
-  // GET_ACTIVE
 } from "../constants";
 
 export const addNewItem = item => {
@@ -34,15 +32,3 @@ export const completeItem = id => {
     payload: id
   };
 };
-
-// export const getCompleted = () => {
-//   return {
-//     type: GET_COMPLETED
-//   };
-// };
-
-// export const getActive = () => {
-//   return {
-//     type: GET_ACTIVE
-//   };
-// };
