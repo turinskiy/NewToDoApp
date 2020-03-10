@@ -7,7 +7,7 @@ import {
   SHOW_ALL,
   SHOW_ACTIVE,
   SHOW_COMPLETED
-} from "./components";
+} from "./components/index";
 import "./styles.css";
 
 class App extends React.Component {

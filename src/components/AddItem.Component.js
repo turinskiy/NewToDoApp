@@ -56,9 +56,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const AddItemComponent = connect(
+export const AddItemComponent = connect(
   null,
   mapDispatchToProps
 )(AddItemClass);
-
-export default AddItemComponent;

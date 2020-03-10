@@ -54,9 +54,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const ToDoItemComponent = connect(
+export const ToDoItemComponent = connect(
   null,
   mapDispatchToProps
 )(ToDoItemClass);
-
-export default ToDoItemComponent;

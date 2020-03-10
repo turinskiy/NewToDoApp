@@ -3,7 +3,7 @@ import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from "./index";
 import "./styles/main.css";
 import "./styles/filter.css";
 
-export default class FilterComponent extends React.Component {
+export class FilterComponent extends React.Component {
   // constructor(props) {
   //   super(props);
   // }

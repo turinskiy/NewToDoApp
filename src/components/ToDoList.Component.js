@@ -3,7 +3,7 @@ import { ToDoItemComponent } from "./ToDoItem.Component";
 import "./styles/main.css";
 import "./styles/todolist.css";
 
-class ToDoListComponent extends React.Component {
+export class ToDoListComponent extends React.Component {
   // constructor(props) {
   //   super(props);
 
@@ -23,5 +23,3 @@ class ToDoListComponent extends React.Component {
     );
   }
 }
-
-export default ToDoListComponent;
