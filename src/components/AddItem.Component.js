@@ -1,10 +1,8 @@
 import * as React from "react";
-import { connect } from "react-redux";
-import { addNewItem } from "../redux/actions";
 import "./styles/main.css";
 import "./styles/additem.css";
 
-class AddItemClass extends React.Component {
+export class AddItemComponent extends React.Component {
   constructor(props) {
     super(props);
 
@@ -21,10 +19,10 @@ class AddItemClass extends React.Component {
 
   onAddClick(e) {
     e.preventDefault();
-    this.props.addToDoItem(this.state.newItemText);
-    this.setState({
-      newItemText: ""
-    });
+
+    this.props.handleAdd(this.state.newItemText);
+
+    this.setState({newItemText: ""});
   }
 
   render() {
@@ -34,14 +32,12 @@ class AddItemClass extends React.Component {
           <input
             type="text"
             value={this.state.newItemText}
-            onChange={e => this.onInput(e)}
-          />
+            onChange={e => this.onInput(e)}/>
         </div>
         <div className="container button-container">
           <button
             disabled={!this.state.newItemText}
-            onClick={e => this.onAddClick(e)}
-          >
+            onClick={e => this.onAddClick(e)}>
             Add
           </button>
         </div>
@@ -49,14 +45,3 @@ class AddItemClass extends React.Component {
     );
   }
 }
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addToDoItem: item => dispatch(addNewItem(item))
-  };
-};
-
-export const AddItemComponent = connect(
-  null,
-  mapDispatchToProps
-)(AddItemClass);

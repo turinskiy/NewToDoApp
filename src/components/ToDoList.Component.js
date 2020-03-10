@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ToDoItemComponent } from "./ToDoItem.Component";
+import { ToDoItemComponent } from "./index";
 import "./styles/main.css";
 import "./styles/todolist.css";
 
@@ -16,7 +16,12 @@ export class ToDoListComponent extends React.Component {
       <div className="todo-list">
         {data.length
           ? data.map(item => {
-              return <ToDoItemComponent key={item.id} item={item} />;
+              return <ToDoItemComponent 
+                onDeleteClick={(id) => this.props.handleDelete(id)}
+                onCompleteClick={(id) => this.props.handleComplete(id)}
+                key={item.id} 
+                item={item} 
+                />;
             })
           : "Empty list"}
       </div>

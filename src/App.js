@@ -1,15 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+import { deleteItem, completeItem, addNewItem } from "./redux/actions";
+import { SHOW_ALL } from "./redux/constants"
 import {
   AddItemComponent,
   ToDoListComponent,
   FilterComponent
 } from "./components/index";
-import {
-  SHOW_ALL,
-  SHOW_ACTIVE,
-  SHOW_COMPLETED
-} from "./redux/constants"
 import "./styles.css";
 
 class App extends React.Component {
@@ -59,11 +56,15 @@ class App extends React.Component {
     return (
       <>
         <h1>To Do App</h1>
-        <AddItemComponent />
+        <AddItemComponent 
+          handleAdd={(data) => this.props.addNewItem(data)}/>
         <FilterComponent
           handleFilter={this.onFilterChange}
           activeFilter={this.state.filter}/>
-        <ToDoListComponent data={this.getherAllAvailable()} />
+        <ToDoListComponent 
+          data={this.getherAllAvailable()} 
+          handleDelete={(id) => this.props.deleteItem(id)}
+          handleComplete={(id) => this.props.completeItem(id)}/>
       </>
     );
   }
@@ -75,9 +76,17 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteItem: id => dispatch(deleteItem(id)),
+    completeItem: id => dispatch(completeItem(id)),
+    addNewItem: data => dispatch(addNewItem(data))
+  };
+};
+
 const AppComponent = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(App);
 
 export default AppComponent;
