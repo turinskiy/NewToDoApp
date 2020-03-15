@@ -2,7 +2,9 @@ import {
   ADD,
   GET_ALL,
   DELETE,
-  COMPLETE
+  COMPLETE,
+  SAVE,
+  LOAD
 } from "../constants";
 
 export const addNewItem = item => {
@@ -32,3 +34,16 @@ export const completeItem = id => {
     payload: id
   };
 };
+
+export const save = items => {
+  return {
+    type: SAVE,
+    payload: items
+  };
+}
+
+export const load = () => {
+  return {
+    type: LOAD
+  };
+}

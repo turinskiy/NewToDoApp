@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteItem, completeItem, addNewItem } from "./redux/actions";
+import _ from 'lodash';
+import { deleteItem, completeItem, addNewItem, save, load } from "./redux/actions";
 import { SHOW_ALL } from "./redux/constants"
 import {
   AddItemComponent,
@@ -13,6 +14,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.props.load();
+
     this.state = {
       filter: SHOW_ALL
     };
@@ -20,6 +23,15 @@ class App extends React.Component {
     // Bindings
     this.onFilterChange = this.onFilterChange.bind(this);
     this.getherAllAvailable = this.getherAllAvailable.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if(!_.isEqual(this.props.all, nextProps.all)) {
+      this.props.save(nextProps.all);
+      // console.log('local store was updated');
+    }
+
+    return true;
   }
 
   onFilterChange(filter) {
@@ -53,6 +65,7 @@ class App extends React.Component {
   }
 
   render() {
+    // console.log('render');
     return (
       <>
         <h1>To Do App</h1>
@@ -80,7 +93,9 @@ const mapDispatchToProps = dispatch => {
   return {
     deleteItem: id => dispatch(deleteItem(id)),
     completeItem: id => dispatch(completeItem(id)),
-    addNewItem: data => dispatch(addNewItem(data))
+    addNewItem: data => dispatch(addNewItem(data)),
+    save: data => dispatch(save(data)),
+    load: () => dispatch(load())
   };
 };
 

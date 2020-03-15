@@ -1,4 +1,7 @@
-import { ADD, DELETE, COMPLETE } from "../constants";
+import { ADD, DELETE, COMPLETE, SAVE, LOAD } from "../constants";
+import { localStorageProvider } from "../../services/localStorage";
+
+const { load, save } = localStorageProvider();
 
 const createToDo = (text, completed = false) => {
   return {
@@ -37,6 +40,19 @@ export const addIntoToDoList = (state = initialState, action) => {
 
       return {
         allToDoItems: [...res]
+      };
+    }
+
+    case SAVE: {
+      save(action.payload);
+      return {
+        allToDoItems: [...state.allToDoItems]
+      };
+    }
+
+    case LOAD: {
+      return {
+        allToDoItems: [...load()]
       };
     }
 
